@@ -9,6 +9,7 @@ import NoteList from "./Pages/NoteList";
 import './App.css';
 import NoteLayout from "./Pages/NoteLayout";
 import NoteShow from "./Pages/NoteShow";
+import NoteEdit from "./Pages/NoteEdit";
 
 export type Note = {
   id : string
@@ -50,6 +51,19 @@ function App() {
   const addTag = (tag : Tag) => {
     setTags(prev => [...prev , tag])
   }
+
+  function onUpdateNote(id: string, { tags, ...data }: NoteData) {
+    setNotes(prevNotes => {
+      return prevNotes.map(note => {
+        if (note.id === id) {
+          return { ...note, ...data, tagIds: tags.map(tag => tag.id) }
+        } else {
+          return note
+        }
+      })
+    })
+  }
+  
   return (
     <Container className="my-4">
       <Routes>
@@ -57,7 +71,7 @@ function App() {
         <Route path="/new" element={<NewNote onSubmit={onCreateNote} onAddTag = {addTag} availableTags = {tags} />} />
         <Route path="/:id" element={<NoteLayout notes={notesWithTags}/>}>
           <Route index element={<NoteShow />} />
-          <Route path="edit" element={<h1>Edit</h1>} />
+          <Route path="edit" element={<NoteEdit onSubmit={onUpdateNote} onAddTag = {addTag} availableTags = {tags} />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
