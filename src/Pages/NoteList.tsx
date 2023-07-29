@@ -14,15 +14,19 @@ type SimplifiedNote = {
 type NoteListProps = {
   availableTags : Tag[],
   notes : SimplifiedNote[]
+  deleteTag : (id:string) => void
+  updateTag : (id:string , label : string) => void
 }
 
 type EditTagsModalProps = {
   show : boolean
   availableTags : Tag[]
   handleClose : () => void
+  deleteTag : (id:string) => void
+  updateTag : (id:string , label : string) => void
 }
 
-function NoteList({availableTags , notes } : NoteListProps) {
+function NoteList({availableTags , notes , deleteTag , updateTag } : NoteListProps) {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([])
   const [title, setTitle] = useState("")
   const [editTagsModalOpen , setEditTagsModalOpen] = useState(false)
@@ -95,6 +99,8 @@ function NoteList({availableTags , notes } : NoteListProps) {
         show={editTagsModalOpen} 
         handleClose={() => setEditTagsModalOpen(false)} 
         availableTags={availableTags}
+        updateTag={updateTag}
+        deleteTag={deleteTag}
       />
     </div>
   );
@@ -121,7 +127,7 @@ function NoteCard({id , title , tags}:SimplifiedNote){
   )
 }
 
-function EditTagsModal ({availableTags , show , handleClose}: EditTagsModalProps){
+function EditTagsModal ({availableTags , show , handleClose , updateTag , deleteTag}: EditTagsModalProps){
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
@@ -133,10 +139,14 @@ function EditTagsModal ({availableTags , show , handleClose}: EditTagsModalProps
             {availableTags.map(tag => (
               <Row key={tag.id}>
                 <Col>
-                  <Form.Control type='text' value={tag.label} />
+                  <Form.Control 
+                    type='text' 
+                    value={tag.label} 
+                    onChange={e => updateTag(tag.id , e.target.value)} 
+                  />
                 </Col>
                 <Col xs="auto">
-                  <Button variant='outline-danger'>&times;</Button>
+                  <Button onClick={() => deleteTag(tag.id)} variant='outline-danger'>&times;</Button>
                 </Col>
               </Row>
             ))}
