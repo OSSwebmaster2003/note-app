@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState , useEffect} from "react";
 
 export const useLocalStorage = <T>(key : string, initialValue : T | (() => T)) => {
   const [value , setValue] = useState<T>(() => {
@@ -13,6 +13,12 @@ export const useLocalStorage = <T>(key : string, initialValue : T | (() => T)) =
       return JSON.parse(jsonValue)
     }
   })
+
+  useEffect(() => {
+    localStorage.setItem(key , JSON.stringify(value))
+  } , [
+    value , key
+  ])
 
   return [value , setValue] as [T , typeof setValue]
 }
