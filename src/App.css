@@ -165,3 +165,8 @@ button:hover{
 .form__select .css-13cymwt-control .css-1fdsijx-ValueContainer .css-1jqq78o-placeholder{
   color: red;
 }
+@media(max-width : 600px){
+  .project_wrapper{
+    padding: 30px 10px;
+  }
+}
