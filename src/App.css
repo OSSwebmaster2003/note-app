@@ -1,0 +1,167 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.project_wrapper{
+  width: 100vw;
+  min-height: 100vh;
+  padding: 40px 30px;
+  background-image: url("./images/bg3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.notes__title{
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: bold;
+  color: red;
+}
+button{
+  padding: 6px 12px;
+  outline: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.2s linear all;
+}
+button:hover{
+  background: transparent;
+}
+.primary__button{
+  border: 2px solid blue;
+  background: blue;
+  color: white;
+}
+.primary__button:hover{
+  color: blue;
+}
+.secondary__button{
+  border: 2px solid green;
+  background-color: green;
+  color: white;
+}
+.secondary__button:hover{
+  color: green;
+}
+.form__label{
+  color: red;
+  font-style: italic;
+}
+.form__input{
+  border: 2px solid red;
+  outline: none;
+  box-shadow: none;
+  border-radius: 7px;
+  background: transparent;
+  color: red;
+}
+.form__input::placeholder{
+  color: red;
+}
+.form__input:focus {
+  color: red;
+  background-color: transparent;
+  border-color: red;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(220, 21, 58, 0.25);
+}
+.form__select .css-13cymwt-control{
+  background: transparent;
+  border: 2px solid red;
+  border-radius: 7px;
+  outline: none;
+}
+.form__select .css-13cymwt-control:hover{
+  border-color: red;
+}
+.form__select .css-13cymwt-control .css-1fdsijx-ValueContainer #react-select-3-placeholder{
+  color: red;
+}
+.form__select .css-13cymwt-control .css-1fdsijx-ValueContainer #react-select-15-placeholder{
+  color: red;
+}
+.form__select .css-t3ipsp-control{
+  background: transparent;
+  outline: none;
+  border:2px solid red;
+  box-shadow: 0 0 0 1px red;
+  border-radius: 7px;
+}
+.form__select .css-t3ipsp-control:hover{
+  border-color: red;
+}
+.form__select .css-t3ipsp-control .css-1fdsijx-ValueContainer #react-select-3-placeholder{
+  color: red;
+}
+.form__select .css-t3ipsp-control .css-1fdsijx-ValueContainer #react-select-15-placeholder{
+  color: red;
+}
+.form__select .css-13cymwt-control .css-1hb7zxy-IndicatorsContainer .css-1u9des2-indicatorSeparator{
+  background-color: red;
+}
+.form__select .css-13cymwt-control .css-1hb7zxy-IndicatorsContainer .css-1xc3v61-indicatorContainer svg{
+  color: red;
+  fill: red;
+}
+.form__select .css-t3ipsp-control .css-1fdsijx-ValueContainer #react-select-3-placeholder{
+  color: red;
+}
+.form__select .css-t3ipsp-control .css-1fdsijx-ValueContainer #react-select-15-placeholder{
+  color: red;
+}
+.form__select .css-t3ipsp-control .css-1hb7zxy-IndicatorsContainer .css-1u9des2-indicatorSeparator{
+  background-color: red;
+}
+.form__select .css-t3ipsp-control .css-1hb7zxy-IndicatorsContainer .css-15lsz6c-indicatorContainer svg{
+  color: red;
+  fill: red;
+}
+.form__select .css-t3ipsp-control .css-1fdsijx-ValueContainer .css-166bipr-Input{
+  color: red;
+}
+.form__select .css-t3ipsp-control .css-1fdsijx-ValueContainer .css-166bipr-Input::placeholder{
+  color: red;
+}
+.form__select .css-13cymwt-control .css-1fdsijx-ValueContainer #react-select-5-placeholder{
+  color: red;
+}
+.form__select .css-t3ipsp-control .css-1fdsijx-ValueContainer #react-select-5-placeholder{
+  color: red;
+}
+.form__select .css-t3ipsp-control .css-1fdsijx-ValueContainer .css-1jqq78o-placeholder{
+  color: red;
+}
+.form__select .css-13cymwt-control.css-1fdsijx-ValueContainer .css-1jqq78o-placeholder{
+  color: red;
+}
+.form__select .css-13cymwt-control.css-1fdsijx-ValueContainer .css-1jqq78o-placeholder::placeholder{
+  color: red;
+}
+.form__card{
+  background: rgba(69, 11, 175, 0.4);
+}
+.form__card__header{
+  color: white;
+  font-weight: 600;
+}
+.danger__button{
+  background: red;
+  border: 2px solid red;
+  color: black;
+}
+.danger__button:hover{
+  color: red;
+}
+.edit__modal{
+  background: rgba(220, 21, 58, 0.25);
+}
+.note__text{
+  font-size: 20px;
+  line-height: 120%;
+  color: white;
+}
+.form__select .css-13cymwt-control .css-1fdsijx-ValueContainer .css-1jqq78o-placeholder{
+  color: red;
+}

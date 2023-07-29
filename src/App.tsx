@@ -2,14 +2,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Navigate, Route, Routes } from "react-router";
 import { Container } from "react-bootstrap";
 import NewNote from "./Pages/NewNote";
-import { useState , useMemo } from "react";
+import { useMemo } from "react";
 import { useLocalStorage } from "./useLocalStorage";
 import { v4 as uuidV4 } from "uuid"
 import NoteList from "./Pages/NoteList";
-import './App.css';
 import NoteLayout from "./Pages/NoteLayout";
 import NoteShow from "./Pages/NoteShow";
 import NoteEdit from "./Pages/NoteEdit";
+import './App.css';
 
 export type Note = {
   id : string
@@ -89,17 +89,19 @@ function App() {
   }
 
   return (
-    <Container className="my-4">
-      <Routes>
-        <Route path="/" element={<NoteList notes={notesWithTags} availableTags={tags} updateTag={updateTag} deleteTag={deleteTag} />} />
-        <Route path="/new" element={<NewNote onSubmit={onCreateNote} onAddTag = {addTag} availableTags = {tags} />} />
-        <Route path="/:id" element={<NoteLayout notes={notesWithTags}/>}>
-          <Route index element={<NoteShow onDeleteNote={onDeleteNote} />} />
-          <Route path="edit" element={<NoteEdit onSubmit={onUpdateNote} onAddTag = {addTag} availableTags = {tags} />} />
-        </Route>
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </Container>
+    <div className="project_wrapper">
+      <Container>
+        <Routes>
+          <Route path="/" element={<NoteList notes={notesWithTags} availableTags={tags} updateTag={updateTag} deleteTag={deleteTag} />} />
+          <Route path="/new" element={<NewNote onSubmit={onCreateNote} onAddTag = {addTag} availableTags = {tags} />} />
+          <Route path="/:id" element={<NoteLayout notes={notesWithTags}/>}>
+            <Route index element={<NoteShow onDeleteNote={onDeleteNote} />} />
+            <Route path="edit" element={<NoteEdit onSubmit={onUpdateNote} onAddTag = {addTag} availableTags = {tags} />} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </Container>
+    </div>
   );
 }
 

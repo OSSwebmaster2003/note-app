@@ -15,7 +15,7 @@ function NoteShow({onDeleteNote} : NoteProps) {
     <div>
       <Row className='align-items-center mb-4'>
         <Col>
-          <h1>{note.title}</h1>
+          <h1 className='notes__title'>{note.title}</h1>
           <Stack gap={1} direction='horizontal' className='flex-wrap'>
               {note.tags.map(tag => (
                 <Badge key={tag.id} className='text-truncate'>{tag.label}</Badge>
@@ -25,19 +25,19 @@ function NoteShow({onDeleteNote} : NoteProps) {
         <Col xs="auto">
           <Stack gap={2} direction='horizontal'>
             <Link to={`/${note.id}/edit`}>
-              <Button variant='primary'>Edit</Button>
+              <button className='primary__button'>Edit</button>
             </Link>
-            <Button variant='outline-danger' onClick={() => {
+            <button className='danger__button' onClick={() => {
               onDeleteNote(note.id)
               navigate("/")
-            }}>Delete</Button>
+            }}>Delete</button>
             <Link to="..">
-              <Button variant='outline-secondary'>Back</Button>
+              <button className='secondary__button'>Back</button>
             </Link>
           </Stack>
         </Col>
       </Row>
-      <ReactMarkdown>{note.markdown}</ReactMarkdown>
+      <ReactMarkdown className='note__text'>{note.markdown}</ReactMarkdown>
     </div>
   );
 }

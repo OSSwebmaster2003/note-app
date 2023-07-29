@@ -47,13 +47,13 @@ function NoteList({availableTags , notes , deleteTag , updateTag } : NoteListPro
   return (
     <div>
       <Row className='align-items-center mb-4'>
-        <Col><h1>Notes</h1></Col>
+        <Col><h1 className='notes__title'>Notes</h1></Col>
         <Col xs="auto">
           <Stack gap={2} direction='horizontal'>
             <Link to="/new">
-              <Button variant='primary'>Create</Button>
+              <button className='primary__button'>Create</button>
             </Link>
-            <Button variant='outline-secondary' onClick={() => setEditTagsModalOpen(true)}>Edit Tags</Button>
+            <button className='secondary__button' onClick={() => setEditTagsModalOpen(true)}>Edit Tags</button>
           </Stack>
         </Col>
       </Row>
@@ -61,14 +61,21 @@ function NoteList({availableTags , notes , deleteTag , updateTag } : NoteListPro
         <Row className='mb-4'>
           <Col>
             <Form.Group controlId='title'>
-              <Form.Label>Title</Form.Label>
-              <Form.Control value={title} onChange={(e) => setTitle(e.target.value)} type='text' />
+              <Form.Label className='form__label'>Title</Form.Label>
+              <Form.Control 
+                className='form__input' 
+                value={title} 
+                onChange={(e) => setTitle(e.target.value)} 
+                type='text'
+                placeholder='search with title'
+              />
             </Form.Group>
           </Col>
           <Col>
           <Form.Group controlId="tags">
-              <Form.Label>Tags</Form.Label>
+              <Form.Label className='form__label'>Tags</Form.Label>
               <ReactSelect
+                className='form__select'
                 value={selectedTags.map((tag) => (
                   {label : tag.label , value : tag.id}
                 ))}
@@ -110,10 +117,10 @@ export default NoteList;
 
 function NoteCard({id , title , tags}:SimplifiedNote){
   return (
-    <Card as={Link} to={`/${id}`} className={`h-100 text-reset text-decoration-none super__card`}>
+    <Card as={Link} to={`/${id}`} className={`h-100 text-reset text-decoration-none super__card form__card`}>
       <Card.Body>
         <Stack gap={2} className='align-items-center justify-content-center h-100'>
-          <span className='fs-5'>{title}</span>
+          <span className='fs-5 form__card__header'>{title}</span>
           {tags.length > 0 && (
             <Stack gap={1} direction='horizontal' className='justify-content-center flex-wrap'>
               {tags.map(tag => (
@@ -129,7 +136,7 @@ function NoteCard({id , title , tags}:SimplifiedNote){
 
 function EditTagsModal ({availableTags , show , handleClose , updateTag , deleteTag}: EditTagsModalProps){
   return (
-    <Modal show={show} onHide={handleClose}>
+    <Modal className='edit__modal' show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Edit Tags</Modal.Title>
       </Modal.Header>

@@ -41,14 +41,21 @@ function NoteForm({
         <Row>
           <Col>
             <Form.Group controlId="title">
-              <Form.Label>Title</Form.Label>
-              <Form.Control ref={titleRef} required defaultValue={title} />
+              <Form.Label className="form__label">Title</Form.Label>
+              <Form.Control 
+                className="form__input" 
+                ref={titleRef} 
+                required 
+                defaultValue={title} 
+                placeholder="title..."
+              />
             </Form.Group>
           </Col>
           <Col>
             <Form.Group controlId="tags">
-              <Form.Label>Tags</Form.Label>
+              <Form.Label className="form__label">Tags</Form.Label>
               <CreatableReactSelect 
+                className="form__select"
                 onCreateOption={label => {
                   const newTag = {id : uuidV4() , label}
                   onAddTag(newTag)
@@ -73,13 +80,13 @@ function NoteForm({
           </Col>
         </Row>
         <Form.Group controlId="markdown">
-          <Form.Label>Body</Form.Label>
-          <Form.Control required as="textarea" ref={markdownRef} rows={10} defaultValue={markdown} />
+          <Form.Label className="form__label">Body</Form.Label>
+          <Form.Control className="form__input" required as="textarea" ref={markdownRef} rows={10} defaultValue={markdown} />
         </Form.Group>
         <Stack direction="horizontal" gap={2} className="justify-content-end">
-          <Button type="submit">Save</Button>
+          <button type="submit" className="primary__button">Save</button>
           <Link to="..">
-            <Button type="button" variant="outline-secondary">Cancel</Button>
+            <button type="button" className="danger__button">Cancel</button>
           </Link>
         </Stack>
       </Stack>
